@@ -13,6 +13,8 @@ import time
 
 def descargar_disponibilidad_devengos(variables):
 	print("🌐 Automatización con Selenium iniciada...")
+	print("🌐 Automatización con Selenium iniciada...")
+	print("🌐 Automatización con Selenium iniciada...")
 	
 	# Parámetros desde el diccionario
 	url = variables.get("url", "https://example.com")
