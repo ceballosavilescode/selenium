@@ -18,13 +18,14 @@ from selenium.common.exceptions import (
 	TimeoutException,
 	WebDriverException
 )
-#''''''''''''''''''''''''''''''''''''''
+
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 import time
 
 def descargar_disponibilidad_devengos(variables):
+	print("🌐 Automatización con Selenium iniciada en modo headless...")
 	print("🌐 Automatización con Selenium iniciada en modo headless...")
 
 	url = variables.get("url", "https://example.com")
