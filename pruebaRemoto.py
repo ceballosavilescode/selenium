@@ -48,6 +48,7 @@ def descargar_disponibilidad_devengos(variables):
 	wait_time = 10
 	while True:
 		try:
+			driver.get(url)
 			wait = WebDriverWait(driver, wait_time)
 			menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
 			menu_button.click()
