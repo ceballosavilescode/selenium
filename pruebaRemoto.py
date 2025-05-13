@@ -12,6 +12,7 @@ import time
 
 def descargar_disponibilidad_devengos(variables):
 	print("🌐 Iniciando automatización Selenium en modo headless para múltiples URLs...")
+	print("🌐 Iniciando automatización Selenium en modo headless para múltiples URLs...")
 
 	geckodriver_path = variables.get("geckodriver_path")
 	if not geckodriver_path:
