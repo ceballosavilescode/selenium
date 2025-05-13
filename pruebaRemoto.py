@@ -24,6 +24,7 @@ def descargar_disponibilidad_devengos(variables):
         print(f"🌍 Navegando a: {url}")
         driver.get(url)
         time.sleep(20)
+        print("FINALIZADO")
     finally:
         driver.quit()
         print("🧹 Sesión de navegador cerrada.")
