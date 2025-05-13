@@ -19,6 +19,12 @@ from selenium.common.exceptions import (
 	WebDriverException
 )
 
+
+
+
+
+
+
 def descargar_disponibilidad_devengos(variables):
 	print("🌐 Automatización con Selenium iniciada...")
 
