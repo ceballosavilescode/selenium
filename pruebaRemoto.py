@@ -44,9 +44,9 @@ def descargar_disponibilidad_devengos(variables):
 	service = Service(executable_path=geckodriver_path)
 	driver = webdriver.Firefox(service=service, options=firefox_options)
 
-	wait_time = 10
 	try:
 		for index, url in enumerate(urls, start=1):
+		wait_time = 10
 		while True:
 			try:
 				driver.get(url)
@@ -61,7 +61,7 @@ def descargar_disponibilidad_devengos(variables):
 				opcion_excel = wait.until(EC.element_to_be_clickable((By.XPATH, '//p[normalize-space(text()) = "Como Excel"]')))
 				opcion_excel.click()
 				time.sleep(10)
-
+				
 				print("✅ Archivo descargado correctamente.")
 				break  # Salir del bucle si todo fue exitoso
 
