@@ -11,6 +11,13 @@ from selenium.common.exceptions import (
 )
 import time
 
+
+
+
+
+
+
+
 def descargar_disponibilidad_devengos(variables):
 	print("🌐 Automatización con Selenium iniciada...")
 	
