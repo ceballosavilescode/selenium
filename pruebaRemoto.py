@@ -23,7 +23,7 @@ def descargar_disponibilidad_devengos(variables):
     try:
         print(f"🌍 Navegando a: {url}")
         driver.get(url)
-        time.sleep(2)
+        time.sleep(20)
         driver.save_screenshot("pantalla.png")
         print("✅ Screenshot guardado como 'pantalla.png'")
     finally:
