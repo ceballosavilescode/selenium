@@ -46,12 +46,14 @@ def descargar_disponibilidad_devengos(variables):
 	print(f"🌍 Navegando a: {url}")
 	driver.get(url)
 	
-	wait = WebDriverWait(driver, 20)
-
-	# Intentar hacer clic en el botón de exportar
-
-	menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
-	time.sleep(3)	
-	menu_button.click()
-	time.sleep(20)
+	wait_time = 10
+	while True:
+		try:
+			wait = WebDriverWait(driver, wait_time)
+			menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
+			menu_button.click()
+			break  # Salir del bucle si el clic es exitoso
+		except (TimeoutException, NoSuchElementException) as e:
+			print(f"⚠️ Fallo al encontrar botón de exportar para -- con espera de {wait_time}s. Error: {e}")
+			wait_time += 10  # Aumentar espera en 10 segundos
 	print(f"✅ descargado correctamente.")
