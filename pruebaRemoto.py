@@ -15,7 +15,8 @@ from selenium.common.exceptions import (
 	WebDriverException
 )
 import sys
-
+from selenium.webdriver.firefox.service import Service
+service = Service(executable_path=variables['geckodriver_path'])
 
 def descargar_disponibilidad_devengos():
 	columna_estado = 'descarga_cartera_financiera_contable'
