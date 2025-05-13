@@ -41,7 +41,7 @@ def descargar_disponibilidad_devengos(variables):
 
 	service = Service(executable_path=geckodriver_path)
 	driver = webdriver.Firefox(service=service, options=options)
-
+	print(f"✅ descargado correctamente!.")
 
 	print(f"🌍 Navegando a: {url}")
 	driver.get(url)
