@@ -26,7 +26,7 @@ def descargar_disponibilidad_devengos(variables):
 	firefox_options = Options()
 	firefox_options.add_argument("-headless")
 	firefox_options.set_preference("browser.download.folderList", 2)
-	firefox_options.set_preference("browser.download.dir", download_directory)
+	#firefox_options.set_preference("browser.download.dir", download_directory)
 	firefox_options.set_preference("browser.helperApps.neverAsk.saveToDisk",
 		"application/vnd.ms-excel,application/csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 	firefox_options.set_preference("pdfjs.disabled", True)
