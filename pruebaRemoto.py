@@ -46,10 +46,9 @@ def descargar_disponibilidad_devengos(variables):
 	service = Service(executable_path=geckodriver_path)
 	driver = webdriver.Firefox(service=service, options=firefox_options)
 
+	wait_time = 10
 	try:
 		for index, url in enumerate(urls, start=1):
-		wait_time = 10
-
 		while True:
 			try:
 				driver.get(url)
