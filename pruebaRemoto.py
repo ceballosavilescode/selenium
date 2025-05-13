@@ -50,7 +50,7 @@ def descargar_disponibilidad_devengos(variables):
                 opcion_excel.click()
                 break  # Salir del bucle si el clic es exitoso
             except (TimeoutException, NoSuchElementException) as e:
-                print(f"⚠️ Fallo al encontrar opción Excel para {cod_institucion} con espera de {wait_time}s. Error: {e}")
+                print(f"⚠️ Fallo al encontrar opción Excel para con espera de {wait_time}s. Error: {e}")
         time.sleep(20)
 
         
