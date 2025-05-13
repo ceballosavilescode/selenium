@@ -48,28 +48,28 @@ def descargar_disponibilidad_devengos(variables):
 
 	try:
 		for index, url in enumerate(urls, start=1):
-		wait_time = 10
-		while True:
-			try:
-				driver.get(url)
-				wait = WebDriverWait(driver, wait_time)
-
-				# Esperar y hacer clic en el botón de menú
-				menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
-				menu_button.click()
-				time.sleep(2)
-
-				# Esperar y hacer clic en "Como Excel"
-				opcion_excel = wait.until(EC.element_to_be_clickable((By.XPATH, '//p[normalize-space(text()) = "Como Excel"]')))
-				opcion_excel.click()
-				time.sleep(10)
-				
-				print("✅ Archivo descargado correctamente.")
-				break  # Salir del bucle si todo fue exitoso
-
-			except (TimeoutException, NoSuchElementException) as e:
-				print(f"⚠️ Reintentando (espera de {wait_time}s). Error: {e}")
-				wait_time += 10
+			wait_time = 10
+			while True:
+				try:
+					driver.get(url)
+					wait = WebDriverWait(driver, wait_time)
+	
+					# Esperar y hacer clic en el botón de menú
+					menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
+					menu_button.click()
+					time.sleep(2)
+	
+					# Esperar y hacer clic en "Como Excel"
+					opcion_excel = wait.until(EC.element_to_be_clickable((By.XPATH, '//p[normalize-space(text()) = "Como Excel"]')))
+					opcion_excel.click()
+					time.sleep(10)
+					
+					print("✅ Archivo descargado correctamente.")
+					break  # Salir del bucle si todo fue exitoso
+	
+				except (TimeoutException, NoSuchElementException) as e:
+					print(f"⚠️ Reintentando (espera de {wait_time}s). Error: {e}")
+					wait_time += 10
 	finally:
 		driver.quit()
 		print("🧹 Firefox cerrado.")
