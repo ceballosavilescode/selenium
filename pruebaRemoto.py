@@ -46,6 +46,14 @@ def descargar_disponibilidad_devengos(variables):
 			wait = WebDriverWait(driver, wait_time)
 			menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
 			menu_button.click()
+			time.sleep(2)
+			opcion_excel = wait.until(EC.element_to_be_clickable((
+				By.XPATH, '//p[normalize-space(text()) = "Como Excel"]'
+			)))
+			opcion_excel.click()
+			time.sleep(10)
+
+			
 			break  # Salir del bucle si el clic es exitoso
 		except (TimeoutException, NoSuchElementException) as e:
 			print(f"⚠️ Fallo al encontrar botón de exportar para -- con espera de {wait_time}s. Error: {e}")
