@@ -19,28 +19,31 @@ from selenium.common.exceptions import (
 	WebDriverException
 )
 
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+import time
+
 def descargar_disponibilidad_devengos(variables):
-	print("🌐 Automatización con Selenium iniciada...")
+    print("🌐 Automatización con Selenium iniciada en modo headless...")
 
-	# Parámetros desde el diccionario
-	url = variables.get("url", "https://example.com")
-	geckodriver_path = variables.get("geckodriver_path")
+    url = variables.get("url", "https://example.com")
+    geckodriver_path = variables.get("geckodriver_path")
 
-	if not geckodriver_path:
-		raise ValueError("❌ No se proporcionó la ruta al geckodriver.")
+    if not geckodriver_path:
+        raise ValueError("❌ Ruta del geckodriver no proporcionada.")
 
-	# Configuración de Selenium
-	options = Options()
-	options.headless = True  # ← EJECUCIÓN SIN CABEZA
+    # Configurar Firefox en modo sin cabeza
+    options = Options()
+    options.headless = True
 
-	# Crear servicio y driver
-	service = Service(executable_path=geckodriver_path)
-	driver = webdriver.Firefox(service=service, options=options)
-	print(f"✅ descargado correctamente!.")
+    # Crear el servicio con el path correcto
+    service = Service(executable_path=geckodriver_path)
 
-	print(f"🌍 Navegando a: {url}")
-	driver.get(url)
-	
+    # Crear instancia del navegador
+    driver = webdriver.Firefox(service=service, options=options)
+
+    	
 	wait_time = 10
 	while True:
 		try:
