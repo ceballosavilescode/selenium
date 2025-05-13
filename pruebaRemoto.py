@@ -41,11 +41,10 @@ def descargar_disponibilidad_devengos(variables):
 	print(f"🌍 Navegando a: {url}")
 	driver.get(url)
 	
-	# Intentar hacer clic en el botón de exportar con espera incremental
-	wait_time = WebDriverWait(driver, 10)
+	wait = WebDriverWait(driver, 10)
 
 	# Intentar hacer clic en el botón de exportar
-	wait = WebDriverWait(driver, wait_time)
+
 	menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
 	menu_button.click()
 	time.sleep(10)
