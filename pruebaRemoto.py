@@ -21,6 +21,12 @@ service = Service(executable_path=variables['geckodriver_path'])
 def descargar_disponibilidad_devengos(variables):
     print("🌐 Automatización con Selenium iniciada...")
 
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium import webdriver
+import time
+
+def descargar_disponibilidad_devengos(variables):
     options = Options()
     options.headless = True
 
@@ -34,10 +40,11 @@ def descargar_disponibilidad_devengos(variables):
     try:
         driver.get(variables.get("url", "https://www.google.com/"))
         time.sleep(2)
-        #driver.save_screenshot("pantalla.png")
-        print("✅ Screenshot guardado.")
+        driver.save_screenshot("pantalla.png")
+        print("✅ Screenshot guardado como pantalla.png")
     finally:
         driver.quit()
+
 
 if __name__ == "__main__":
 	descargar_disponibilidad_devengos()
