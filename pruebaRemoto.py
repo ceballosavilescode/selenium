@@ -14,13 +14,25 @@ from selenium.common.exceptions import (
 	TimeoutException,
 	WebDriverException
 )
+import sys
+
 
 def descargar_disponibilidad_devengos():
 	columna_estado = 'descarga_cartera_financiera_contable'
 	download_directory = os.path.join(os.getcwd(), 'input_excel', 'cartera_financiera_contable')
 	os.makedirs(download_directory, exist_ok=True)
 
-	geckodriver_path = 'C:/Users/Hector/Downloads/cobranzas/webdriver/geckodriver.exe'
+	# Detectar si se está ejecutando como .exe (PyInstaller) o script normal
+	if getattr(sys, 'frozen', False):
+		base_path = sys._MEIPASS  # Carpeta temporal donde PyInstaller extrae recursos
+	else:
+		base_path = os.path.dirname(os.path.abspath(__file__))
+
+
+	#geckodriver_path = 'C:/Users/Hector/Downloads/cobranzas/webdriver/geckodriver.exe'
+	geckodriver_path = os.path.join(base_path, 'webdriver', 'geckodriver.exe')
+
+
 
 	firefox_options = Options()
 	#firefox_options.add_argument("-headless")
