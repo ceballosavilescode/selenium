@@ -28,7 +28,9 @@ def descargar_disponibilidad_devengos(variables):
 	print("🌐 Automatización con Selenium iniciada en modo headless...")
 	print("🌐 Automatización con Selenium iniciada en modo headless...")
 	print("🌐 Automatización con Selenium iniciada en modo headless...")
-
+	print("🌐 Automatización con Selenium iniciada en modo headless...")
+	print("🌐 Automatización con Selenium iniciada en modo headless...")
+	print("🌐 Automatización con Selenium iniciada en modo headless...")
 	
 	url = variables.get("url", "https://example.com")
 	geckodriver_path = variables.get("geckodriver_path")
