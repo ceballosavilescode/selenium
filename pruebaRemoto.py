@@ -31,8 +31,9 @@ def descargar_disponibilidad_devengos(variables):
 
 	# Configuración de Selenium
 	options = Options()
-	options.headless = True
+	options.headless = True  # ← EJECUCIÓN SIN CABEZA
 
+	# Crear servicio y driver
 	service = Service(executable_path=geckodriver_path)
 	driver = webdriver.Firefox(service=service, options=options)
 	print(f"✅ descargado correctamente!.")
