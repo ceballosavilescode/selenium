@@ -2,6 +2,23 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 import time
+import os
+import time
+import sqlite3
+import pandas as pd
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import (
+	NoSuchElementException,
+	TimeoutException,
+	WebDriverException
+)
+
 
 def descargar_disponibilidad_devengos(variables):
     print("🌐 Automatización con Selenium iniciada...")
