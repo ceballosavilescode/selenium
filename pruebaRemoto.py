@@ -12,20 +12,27 @@ from selenium.common.exceptions import (
 import time
 
 def descargar_disponibilidad_devengos(variables):
-    print("🌐 Automatización con Selenium iniciada en modo headless...")
+	print("🌐 Automatización con Selenium iniciada...")
 
-    url = variables.get("url", "https://example.com")
-    geckodriver_path = variables.get("geckodriver_path")
+	# Parámetros desde el diccionario
+	url = variables.get("url", "https://example.com")
+	geckodriver_path = variables.get("geckodriver_path")
 
-    if not geckodriver_path:
-        raise ValueError("❌ Ruta del geckodriver no proporcionada.")
+	if not geckodriver_path:
+		raise ValueError("❌ No se proporcionó la ruta al geckodriver.")
 
-    # Configurar Firefox sin cabeza
-    options = Options()
-    options.headless = True  # ← modo sin interfaz gráfica
+	# Configuración de Selenium
+	firefox_options = Options()
+	firefox_options.add_argument("-headless")
+	firefox_options.set_preference("browser.download.folderList", 2)
+	firefox_options.set_preference("browser.download.dir", download_directory)
+	firefox_options.set_preference("browser.helperApps.neverAsk.saveToDisk",
+		"application/vnd.ms-excel,application/csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+	firefox_options.set_preference("pdfjs.disabled", True)
+	firefox_options.set_preference("browser.download.manager.showWhenStarting", False)
 
-    service = Service(executable_path=geckodriver_path)
-    driver = webdriver.Firefox(service=service, options=options)
+	service = Service(executable_path=geckodriver_path)
+	driver = webdriver.Firefox(service=service, options=firefox_options)
 
     wait_time = 10
     try:
