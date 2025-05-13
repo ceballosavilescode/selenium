@@ -49,4 +49,4 @@ def descargar_disponibilidad_devengos(variables):
 	menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
 	menu_button.click()
 	time.sleep(10)
-	print(f"✅ {cod_institucion} descargado correctamente.")
+	print(f"✅ descargado correctamente.")
