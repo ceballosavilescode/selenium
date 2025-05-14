@@ -37,7 +37,7 @@ def click_first_available(driver, wait, xpaths, delay_after_click=0):
 
 
 def descargar_disponibilidad_devengos(variables):
-	mensaje = "🌐 Ejecutando programa de automatización desarrollado por Avilés..."
+	mensaje = "🌐 Ejecutando programa de automatización desarrollado por Héctor Ceballos..."
 	print(mensaje, end='', flush=True)
 	
 	for _ in range(3):
