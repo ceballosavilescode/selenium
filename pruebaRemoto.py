@@ -38,8 +38,7 @@ def click_first_available(driver, wait, xpaths, delay_after_click=0):
 
 
 def descargar_disponibilidad_devengos(variables):
-	print("🌐 Automatización con Selenium iniciada...")
-	mensaje = "🌐 Automatización con Selenium iniciada"
+	mensaje = "🌐 Ejecutando programa de automatización desarrollado por Avilés..."
 	print(mensaje, end='', flush=True)
 	
 	for _ in range(3):
