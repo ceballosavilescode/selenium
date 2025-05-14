@@ -93,9 +93,6 @@ def descargar_disponibilidad_devengos(variables):
 		opcion_excel.click()
 		time.sleep(6)
 
-
-
-
 variables = {
 	'user': 'yo',
 	'password': '456',
