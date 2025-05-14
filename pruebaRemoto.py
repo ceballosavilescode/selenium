@@ -21,6 +21,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.common.exceptions import NoSuchElementException
+import sys
 
 
 def click_first_available(driver, wait, xpaths, delay_after_click=0):
@@ -38,7 +39,18 @@ def click_first_available(driver, wait, xpaths, delay_after_click=0):
 
 def descargar_disponibilidad_devengos(variables):
 	print("🌐 Automatización con Selenium iniciada...")
+	mensaje = "🌐 Automatización con Selenium iniciada"
+	print(mensaje, end='', flush=True)
+	
+	for _ in range(3):
+	    for punto in ".  ..  ...  ".split():
+	        sys.stdout.write('\r' + mensaje + punto)
+	        sys.stdout.flush()
+	        time.sleep(0.4)
+	
+	print("\n✅ Comenzando...")
 
+	
 	# Parámetros desde el diccionario
 	geckodriver_path = variables.get("geckodriver_path")
 	if not geckodriver_path:
@@ -92,6 +104,10 @@ def descargar_disponibilidad_devengos(variables):
 		)))
 		opcion_excel.click()
 		time.sleep(6)
+
+	# ✅ Al terminar todo el proceso:
+	driver.quit()
+	sys.exit()  # Finaliza el programa inmediatamente
 
 variables = {
 	'user': 'yo',
