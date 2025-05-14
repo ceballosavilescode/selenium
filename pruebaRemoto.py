@@ -89,40 +89,23 @@ def descargar_disponibilidad_devengos(variables):
 	service = Service(executable_path=geckodriver_path)
 	driver = webdriver.Firefox(service=service, options=firefox_options)
 
-	try:
-		for index, url in enumerate(urls, start=1):
-			print(f"\n🌐 Procesando URL {index}: {url}")
-			try:
-				driver.get(url)
-				wait = WebDriverWait(driver, 15)
+	for index, url in enumerate(urls, start=1):
+		driver.get(url)
+		wait = WebDriverWait(driver, 6)
+		time.sleep(5)
+		menu_button = wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="export"]/span/span[2]')))
+		menu_button.click()
+		time.sleep(5)
 
-				export_xpaths = [
-					'//*[@id="export"]/span/span[2]',
-					'//*[@id="menuList_simpleAction_36"]/p'
-				]
+		opcion_excel = wait.until(EC.element_to_be_clickable((
+			By.XPATH, '//p[normalize-space(text()) = "Como Excel"]'
+		)))
+		opcion_excel.click()
+		time.sleep(6)
 
-				if not click_first_available(driver, wait, export_xpaths, delay_after_click=4):
-					print("⚠️ No se encontró ningún botón de exportar. Saltando esta URL.")
-					continue
-
-				try:
-					opcion_excel = wait.until(EC.element_to_be_clickable((
-						By.XPATH, '//p[normalize-space(text()) = "Como Excel"]'
-					)))
-					opcion_excel.click()
-					print("📥 Opción 'Como Excel' seleccionada exitosamente.")
-					time.sleep(6)
-				except TimeoutException:
-					print("⚠️ No se encontró la opción 'Como Excel'. Saltando esta URL.")
-					continue
-
-			except (TimeoutException, WebDriverException, NoSuchElementException) as e:
-				print(f"❌ Error al procesar la URL {index}: {e}")
-
-	finally:
-		driver.quit()
-		print("\n🔒 Navegador cerrado. Proceso finalizado.")
-		sys.exit()
+	# ✅ Al terminar todo el proceso:
+	driver.quit()
+	sys.exit()  # Finaliza el programa inmediatamente
 
 variables = {
 	'user': 'yo',
