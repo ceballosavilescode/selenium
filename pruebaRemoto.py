@@ -68,7 +68,7 @@ def descargar_disponibilidad_devengos(variables):
 
 	# Configuración de Selenium
 	firefox_options = Options()
-	#firefox_options.add_argument("-headless")  # opcional para modo sin ventana
+	firefox_options.add_argument("-headless")  # opcional para modo sin ventana
 	firefox_options.set_preference("browser.download.folderList", 2)
 	# firefox_options.set_preference("browser.download.dir", download_directory)
 	firefox_options.set_preference("browser.helperApps.neverAsk.saveToDisk",
