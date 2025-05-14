@@ -11,7 +11,6 @@ from selenium.common.exceptions import (
 )
 import time
 import os
-import os
 import time
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
